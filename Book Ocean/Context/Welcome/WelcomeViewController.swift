@@ -15,7 +15,7 @@ final class WelcomeViewController: UIViewController, Transition {
 
         // Do any additional setup after loading the view.
     }
-    
+
     // MARK: - Actions
     @IBAction func LoginButtonClicked(_ sender: UIButton) {
         navigatePageWithPush(nameText: "Login", identifier: "LoginScreen")

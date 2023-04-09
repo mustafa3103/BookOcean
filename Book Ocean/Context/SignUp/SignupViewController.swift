@@ -18,8 +18,8 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak var rePasswordTextField: UITextField!
     
     // MARK: - Proporties.
-    var signUpViewModel: SignUpViewModel = SignUpViewModel()
-    
+    private var signUpViewModel: SignUpViewModel = SignUpViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +40,6 @@ final class SignupViewController: UIViewController {
 
 extension SignupViewController: SignUpViewModelDelegate, Transition {
     func signUpStateControl(result: Bool) {
-        
         if result {
             navigatePageWithPresent(nameText: "Main", identifier: "toMainTabBar")
         }

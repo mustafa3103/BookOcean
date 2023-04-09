@@ -23,9 +23,7 @@ final class SignUpViewModel: SignUpViewModelProtocol {
     func signUpNewUser(email: String, password: String, rePassword: String, name: String, surname: String) {
         if password == rePassword && password.count >= 6 {
             let newUser = UserModel(email: email, name: name, surname: surname, password: password)
-            
-            DispatchQueue.main.async {
-                let signUpResult = self.firebaseManager.signUpUser(user: newUser) { result in
+                self.firebaseManager.signUpUser(user: newUser) { result in
                     if result {
                         // User created succesfully.
                         self.delegate?.signUpStateControl(result: result)
@@ -34,8 +32,6 @@ final class SignUpViewModel: SignUpViewModelProtocol {
                         // Error was occured.
                     }
                 }
-                
-            }
         } else {
             // Password unmatched.
             print("Password unmatched.")

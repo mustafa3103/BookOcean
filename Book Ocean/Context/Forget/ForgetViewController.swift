@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ForgetViewController: UIViewController {
+final class ForgetViewController: UIViewController {
 
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

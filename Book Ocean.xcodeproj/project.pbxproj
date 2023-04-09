@@ -127,13 +127,13 @@
 		5B1B94E529C8E52100F14804 /* Book Ocean */ = {
 			isa = PBXGroup;
 			children = (
-				5B1B950829C8F3DA00F14804 /* Utility */,
-				5B1B94FA29C8E53E00F14804 /* Core */,
-				5B1B94FB29C8E55F00F14804 /* Context */,
 				5B1B94EF29C8E52300F14804 /* Assets.xcassets */,
-				5B1B94F129C8E52300F14804 /* LaunchScreen.storyboard */,
-				5B1B94F429C8E52300F14804 /* Info.plist */,
+				5B1B94FB29C8E55F00F14804 /* Context */,
+				5B1B94FA29C8E53E00F14804 /* Core */,
 				5B43B34B29CA5F8B006018DF /* GoogleService-Info.plist */,
+				5B1B94F429C8E52300F14804 /* Info.plist */,
+				5B1B94F129C8E52300F14804 /* LaunchScreen.storyboard */,
+				5B1B950829C8F3DA00F14804 /* Utility */,
 			);
 			path = "Book Ocean";
 			sourceTree = "<group>";
@@ -150,11 +150,11 @@
 		5B1B94FB29C8E55F00F14804 /* Context */ = {
 			isa = PBXGroup;
 			children = (
-				5BBCBDA729CF3BFB00E2094F /* Main */,
-				5B1B950029C8E5EC00F14804 /* Welcome */,
-				5B1B950B29C9016600F14804 /* SignUp */,
-				5B1B950129C8F14F00F14804 /* Login */,
 				5B1B951229C903AA00F14804 /* Forget */,
+				5B1B950129C8F14F00F14804 /* Login */,
+				5BBCBDA729CF3BFB00E2094F /* Main */,
+				5B1B950B29C9016600F14804 /* SignUp */,
+				5B1B950029C8E5EC00F14804 /* Welcome */,
 			);
 			path = Context;
 			sourceTree = "<group>";
@@ -235,12 +235,12 @@
 			isa = PBXGroup;
 			children = (
 				5B4DDAA829D04D9100151BD6 /* AddNewBook */,
-				5BBCBDAA29CF3C3300E2094F /* Main.storyboard */,
-				5BBCBDB129CF441000E2094F /* Main */,
-				5BBCBDB529CF44A000E2094F /* Friends */,
 				5BBCBDB429CF445A00E2094F /* BookRecommend */,
-				5BBCBDB329CF443A00E2094F /* Settings */,
+				5BBCBDB529CF44A000E2094F /* Friends */,
+				5BBCBDB129CF441000E2094F /* Main */,
+				5BBCBDAA29CF3C3300E2094F /* Main.storyboard */,
 				5BBCBDB029CF3CCD00E2094F /* MainTableViewCell */,
+				5BBCBDB329CF443A00E2094F /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";

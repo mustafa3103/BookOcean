@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookRecommendViewController: UIViewController {
+final class BookRecommendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

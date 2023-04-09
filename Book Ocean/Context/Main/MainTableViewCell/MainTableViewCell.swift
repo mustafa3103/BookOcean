@@ -7,15 +7,13 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
-
+final class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userComment: UILabel!
     @IBOutlet weak var authorImageView: UIImageView!
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var authorName: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +25,4 @@ class MainTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewBookTableViewCell: UITableViewCell {
+final class NewBookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var authorName: UILabel!
