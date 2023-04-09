@@ -55,9 +55,10 @@ final class AddNewBookViewModel: AddNewBookViewModelProtocol {
     func addNewBookToFirebase(_ selectedBook: Int, userComment: String?) {
         
         // Kayıt işlemi burada yapılacak.
+        let userEmail = firebaseManager.getCurrentUserEmail()
         let takenBook = bookDataModel[selectedBook].volumeInfo
         let category = takenBook.categories?.first
-        let firebaseBookModel = FirebaseBookModel(title: takenBook.title ?? "-", description: takenBook.description ?? "-", author: takenBook.authors!.first!, imageLink: takenBook.imageLinks!.first!.value, userComment: userComment!, userEmail: "fakeemail@gmail.com", categories: category ?? "-")
+        let firebaseBookModel = FirebaseBookModel(title: takenBook.title ?? "-", description: takenBook.description ?? "-", author: takenBook.authors!.first!, imageLink: takenBook.imageLinks!.first!.value, userComment: userComment!, userEmail: userEmail, categories: category ?? "-")
         
         firebaseManager.addNewBookToFirebase(firebaseBookModel)
         

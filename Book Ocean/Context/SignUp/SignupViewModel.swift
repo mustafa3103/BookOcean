@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SignUpViewModelDelegate: AnyObject {
-    
+    func signUpStateControl(result: Bool)
 }
 
 protocol SignUpViewModelProtocol: AnyObject {
@@ -21,17 +21,24 @@ final class SignUpViewModel: SignUpViewModelProtocol {
     private var firebaseManager: FirebaseManager = FirebaseManager()
     
     func signUpNewUser(email: String, password: String, rePassword: String, name: String, surname: String) {
-        if password == rePassword && password.count > 6 {
+        if password == rePassword && password.count >= 6 {
             let newUser = UserModel(email: email, name: name, surname: surname, password: password)
-            let signUpResult = firebaseManager.signUpUser(user: newUser)
             
-            if signUpResult {
-                // User created succesfully.
-            } else {
-                // Error was occured.
+            DispatchQueue.main.async {
+                let signUpResult = self.firebaseManager.signUpUser(user: newUser) { result in
+                    if result {
+                        // User created succesfully.
+                        self.delegate?.signUpStateControl(result: result)
+                        
+                    } else {
+                        // Error was occured.
+                    }
+                }
+                
             }
         } else {
             // Password unmatched.
+            print("Password unmatched.")
         }
         
     }

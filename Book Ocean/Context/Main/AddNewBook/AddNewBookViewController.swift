@@ -42,6 +42,8 @@ extension AddNewBookViewController {
 
         let okAction = UIAlertAction(title: "Save", style: .default) { (action) in
             if let userComment = alertController.textFields?.first {
+                // Güncel kullanıcının mail adresini al
+                // Güncel kullanıcının ismini Users collection'nı çağırarak mail adresi ile eşleştirip ondaki ismi ata.
                 self.viewModel.addNewBookToFirebase(selectedBook, userComment: userComment.text)
 
                 self.dismiss(animated: true)

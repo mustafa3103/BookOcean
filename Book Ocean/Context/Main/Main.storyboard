@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hJq-f9-SPX">
-                                <rect key="frame" x="0.0" y="82" width="390" height="679"/>
+                                <rect key="frame" x="0.0" y="150.66666666666669" width="390" height="610.33333333333326"/>
                                 <color key="backgroundColor" name="backgrounColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="tgq-hi-PV9" id="knN-Wc-irN"/>
@@ -37,13 +38,22 @@
                                     <action selector="addNewBook:" destination="tgq-hi-PV9" eventType="touchUpInside" id="6mJ-kV-TqY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Ocean" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLp-3K-TNc">
+                                <rect key="frame" x="16" y="90" width="358" height="52.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="34"/>
+                                <color key="textColor" name="buttonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QUF-zq-SdQ"/>
                         <color key="backgroundColor" name="backgrounColor"/>
                         <constraints>
                             <constraint firstItem="hJq-f9-SPX" firstAttribute="bottom" secondItem="QUF-zq-SdQ" secondAttribute="bottom" id="3CI-b2-N8d"/>
                             <constraint firstItem="hJq-f9-SPX" firstAttribute="trailing" secondItem="QUF-zq-SdQ" secondAttribute="trailing" id="7he-hR-yTv"/>
-                            <constraint firstItem="hJq-f9-SPX" firstAttribute="top" secondItem="QnS-HN-dgT" secondAttribute="bottom" id="Bdn-sH-xzj"/>
+                            <constraint firstItem="ZLp-3K-TNc" firstAttribute="leading" secondItem="QUF-zq-SdQ" secondAttribute="leading" constant="16" id="M7E-TB-DmK"/>
+                            <constraint firstItem="hJq-f9-SPX" firstAttribute="top" secondItem="ZLp-3K-TNc" secondAttribute="bottom" constant="8" symbolic="YES" id="Tk0-Zf-igv"/>
+                            <constraint firstItem="QUF-zq-SdQ" firstAttribute="trailing" secondItem="ZLp-3K-TNc" secondAttribute="trailing" constant="16" id="dGq-ck-wkb"/>
+                            <constraint firstItem="ZLp-3K-TNc" firstAttribute="top" secondItem="QnS-HN-dgT" secondAttribute="bottom" constant="8" symbolic="YES" id="mKC-4H-VWr"/>
                             <constraint firstItem="QnS-HN-dgT" firstAttribute="top" secondItem="QUF-zq-SdQ" secondAttribute="top" id="n5c-Ui-Jcz"/>
                             <constraint firstItem="QUF-zq-SdQ" firstAttribute="trailing" secondItem="QnS-HN-dgT" secondAttribute="trailing" constant="16" id="wGx-r7-lu7"/>
                             <constraint firstItem="hJq-f9-SPX" firstAttribute="leading" secondItem="QUF-zq-SdQ" secondAttribute="leading" id="xRD-YE-lra"/>

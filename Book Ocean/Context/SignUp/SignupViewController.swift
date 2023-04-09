@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SignupViewController: UIViewController {
+final class SignupViewController: UIViewController {
 
     // MARK: - Outlets.
     @IBOutlet weak var nameTextField: UITextField!
@@ -24,9 +24,9 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        signUpViewModel.delegate = self
     }
 
-    
     @IBAction func signUpButtonClicked(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
@@ -36,5 +36,13 @@ class SignupViewController: UIViewController {
         
         signUpViewModel.signUpNewUser(email: email, password: password, rePassword: rePassword, name: name, surname: surname)
     }
-    
+}
+
+extension SignupViewController: SignUpViewModelDelegate, Transition {
+    func signUpStateControl(result: Bool) {
+        
+        if result {
+            navigatePageWithPresent(nameText: "Main", identifier: "toMainTabBar")
+        }
+    }
 }

@@ -21,6 +21,11 @@ class MainViewController: UIViewController, Transition {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.prefersLargeTitles = true // enable large titles
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)
+        ]
+        title = "Book Ocean"
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "mainCell")
         mainViewModel.loadData()
         mainViewModel.delegate = self

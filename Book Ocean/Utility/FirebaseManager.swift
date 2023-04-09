@@ -59,26 +59,41 @@ final class FirebaseManager {
         }
     }
     
-    func signUpUser(user: UserModel) -> Bool {
-        var result = false
+    func getCurrentUserEmail() -> String {
+        Auth.auth().currentUser?.email ?? ""
+    }
+
+    func loginWithFirebase(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { auth, error in
+            if auth != nil {
+                // Giriş başarılı.
+                completion(true)
+            }
+            if error != nil {
+                completion(false)
+            }
+        }
+    }
+
+    func signUpUser(user: UserModel, completion: @escaping (Bool) -> Void) {
         let userPassword = user.password ?? ""
         Auth.auth().createUser(withEmail: user.email, password: userPassword) { authResult, error in
             if error != nil {
-                print("Error was occured while signing new user to the application.")
+                completion(false)
             }
 
             if authResult != nil {
-                print("User created succesfully.")
-                // Burada Users collectionına datayı setle. addDocument metodu kullanarak.
-                //
-                result = true
+                
+                self.createNewUser(user)
+                completion(true)
+                
             }
         }
-        return result
     }
-
-    func getCurrentUserEmail() -> String {
-        Auth.auth().currentUser?.email ?? ""
+    
+    func createNewUser(_ userModel: UserModel) {
+        dbf.collection("Users").addDocument(data: ["name": userModel.name, "email": userModel.email, "password": userModel.password ?? "",
+                                                   "surname": userModel.surname ?? ""])
     }
 
     func addNewBookToFirebase(_ firebaseBookModel: FirebaseBookModel) {
