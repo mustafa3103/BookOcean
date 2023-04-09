@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signup View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SignupScreen" id="Y6W-OH-hqX" customClass="SignupViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eaR-ZC-xTv">
+                                <rect key="frame" x="45" y="93.333333333333314" width="300" height="127.99999999999996"/>
+                                <color key="tintColor" name="buttonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130.66999999999999" id="5uE-6U-L6y"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="7FU-0z-7rA">
+                                <rect key="frame" x="20" y="262.66666666666669" width="350" height="317.00000000000006"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPP-8m-CvI">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="45"/>
+                                        <color key="backgroundColor" name="textfieldColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="tQK-nw-xn2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Surname:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="27q-z9-Hh0">
+                                        <rect key="frame" x="0.0" y="68" width="350" height="45"/>
+                                        <color key="backgroundColor" name="textfieldColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YPz-UH-ZMF">
+                                        <rect key="frame" x="0.0" y="136" width="350" height="45"/>
+                                        <color key="backgroundColor" name="textfieldColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVP-vj-ZWH">
+                                        <rect key="frame" x="0.0" y="204" width="350" height="45"/>
+                                        <color key="backgroundColor" name="textfieldColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Repassword:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MpI-W2-ybo">
+                                        <rect key="frame" x="0.0" y="271.99999999999994" width="350" height="45"/>
+                                        <color key="backgroundColor" name="textfieldColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnI-xE-nl9">
+                                <rect key="frame" x="20" y="610" width="350" height="44"/>
+                                <color key="tintColor" name="backgroundColor2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Up" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                    <color key="baseBackgroundColor" name="buttonColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gPx-Aa-tkO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eaR-ZC-xTv" secondAttribute="trailing" constant="45" id="4TJ-jg-7Bt"/>
+                            <constraint firstItem="eaR-ZC-xTv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="45" id="9Uj-g8-MEd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gnI-xE-nl9" secondAttribute="trailing" constant="20" id="CcE-Pi-xNf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7FU-0z-7rA" secondAttribute="trailing" constant="20" id="Xz6-YZ-ih0"/>
+                            <constraint firstItem="7FU-0z-7rA" firstAttribute="top" secondItem="eaR-ZC-xTv" secondAttribute="bottom" constant="40" id="YSd-DV-Wcs"/>
+                            <constraint firstItem="eaR-ZC-xTv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="bdv-jC-uvb"/>
+                            <constraint firstItem="gnI-xE-nl9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fCv-YV-PJm"/>
+                            <constraint firstItem="gnI-xE-nl9" firstAttribute="top" secondItem="7FU-0z-7rA" secondAttribute="bottom" constant="30.329999999999998" id="gIH-5u-J7J"/>
+                            <constraint firstItem="eaR-ZC-xTv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="gqs-u3-d7X"/>
+                            <constraint firstItem="7FU-0z-7rA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="m2l-b1-ArZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="YPz-UH-ZMF" id="zvA-0o-rdG"/>
+                        <outlet property="nameTextField" destination="KPP-8m-CvI" id="WwQ-i8-PeI"/>
+                        <outlet property="passwordTextField" destination="oVP-vj-ZWH" id="fU1-4p-m7z"/>
+                        <outlet property="rePasswordTextField" destination="MpI-W2-ybo" id="hoV-uY-ojl"/>
+                        <outlet property="surnameTextField" destination="27q-z9-Hh0" id="GD0-bP-d1h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61.538461538461533" y="-2.1327014218009479"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <namedColor name="backgrounColor">
+            <color red="1" green="0.95686274509803915" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="buttonColor">
+            <color red="0.70588235294117641" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textfieldColor">
+            <color red="0.77540946006774902" green="0.82352941176470584" blue="0.75757402181625366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

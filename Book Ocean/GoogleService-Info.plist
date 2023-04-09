@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>361360017976-ek802j3tc15gu73hcpl0csf9a0jj6f24.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.361360017976-ek802j3tc15gu73hcpl0csf9a0jj6f24</string>
+	<key>API_KEY</key>
+	<string>AIzaSyChF3sRwYmKnTlUNmCa2pk2QfkRX8O6Zu8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>361360017976</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>pala.mustafa.Book-Ocean</string>
+	<key>PROJECT_ID</key>
+	<string>book-ocean-85242</string>
+	<key>STORAGE_BUCKET</key>
+	<string>book-ocean-85242.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:361360017976:ios:ca4af06d2a050f2489b4cd</string>
+</dict>
+</plist>

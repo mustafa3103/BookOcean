@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Forget View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="forgetScreen" id="Y6W-OH-hqX" customClass="ForgetViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BeT-Ah-ZKv">
+                                <rect key="frame" x="16" y="83" width="358" height="161"/>
+                                <color key="tintColor" name="buttonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162.33000000000001" id="n0j-gH-iQA"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7x-qb-Je9">
+                                <rect key="frame" x="16" y="330" width="358" height="50"/>
+                                <color key="backgroundColor" name="textfieldColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aGX-ut-1hA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-OZ-0Wx">
+                                <rect key="frame" x="20" y="400" width="350" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="YTb-LS-Yu1"/>
+                                    <constraint firstAttribute="height" constant="44" id="jTS-D6-qfy"/>
+                                </constraints>
+                                <color key="tintColor" name="backgroundColor2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset Password" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                    <color key="baseBackgroundColor" name="buttonColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetPasswordButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IBy-EI-1m0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BeT-Ah-ZKv" secondAttribute="trailing" constant="16" id="1CI-nA-oYo"/>
+                            <constraint firstItem="BeT-Ah-ZKv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="MP8-wI-sf4"/>
+                            <constraint firstItem="BeT-Ah-ZKv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="TZ7-lr-DZy"/>
+                            <constraint firstItem="4e3-OZ-0Wx" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="WLJ-me-Ohz"/>
+                            <constraint firstItem="a7x-qb-Je9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Yn7-K9-i7N"/>
+                            <constraint firstItem="4e3-OZ-0Wx" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="c0g-f5-q6k"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a7x-qb-Je9" secondAttribute="trailing" constant="16" id="h1v-0T-0ZE"/>
+                            <constraint firstItem="4e3-OZ-0Wx" firstAttribute="top" secondItem="a7x-qb-Je9" secondAttribute="bottom" constant="20" id="xqG-Jw-TKk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="a7x-qb-Je9" id="Ux0-ff-GI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4.615384615384615" y="-2.1327014218009479"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="backgrounColor">
+            <color red="1" green="0.95686274509803915" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="buttonColor">
+            <color red="0.70588235294117641" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textfieldColor">
+            <color red="0.77540946006774902" green="0.82352941176470584" blue="0.75757402181625366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

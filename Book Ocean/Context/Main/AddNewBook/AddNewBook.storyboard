@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add New Book View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="toAddNewBook" id="Y6W-OH-hqX" customClass="AddNewBookViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-dB-Mig">
+                                <rect key="frame" x="0.0" y="765" width="390" height="45"/>
+                                <color key="backgroundColor" name="backgrounColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="dws-ny-MLj"/>
+                                </constraints>
+                                <color key="barTintColor" name="backgrounColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="NE7-MZ-9pA"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KLp-3x-TZo">
+                                <rect key="frame" x="0.0" y="47" width="390" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="wJX-fW-d6y"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="9cZ-86-Fcm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="dXR-dB-Mig" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="63A-SI-VhL"/>
+                            <constraint firstItem="KLp-3x-TZo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BOE-vz-55i"/>
+                            <constraint firstItem="KLp-3x-TZo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Iid-Jx-N0d"/>
+                            <constraint firstItem="dXR-dB-Mig" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Z1b-mt-yfP"/>
+                            <constraint firstItem="KLp-3x-TZo" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="f4b-CP-BXV"/>
+                            <constraint firstItem="dXR-dB-Mig" firstAttribute="top" secondItem="KLp-3x-TZo" secondAttribute="bottom" id="fDU-hY-pmd"/>
+                            <constraint firstItem="dXR-dB-Mig" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="hb5-16-eka"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addNewBookSearchBar" destination="dXR-dB-Mig" id="OM2-ih-zZ2"/>
+                        <outlet property="addNewBookTableView" destination="KLp-3x-TZo" id="tBi-JF-D9e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backgrounColor">
+            <color red="1" green="0.9570000171661377" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
