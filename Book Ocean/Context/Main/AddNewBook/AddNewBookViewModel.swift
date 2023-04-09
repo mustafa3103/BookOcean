@@ -18,9 +18,12 @@ protocol AddNewBookViewModelProtocol: AnyObject {
 
 final class AddNewBookViewModel: AddNewBookViewModelProtocol {
     
-    weak var delegate: AddNewBookViewModelDelegate?
-    private var networkManager = NetworkManageer()
+    
+    private var networkManager: NetworkManageer = NetworkManageer()
+    private var firebaseManager: FirebaseManager = FirebaseManager()
+
     var bookDataModel: [Items] = [Items]()
+    weak var delegate: AddNewBookViewModelDelegate?
 
     func loadData(_ searchedBook: String?) {
 
@@ -46,6 +49,17 @@ final class AddNewBookViewModel: AddNewBookViewModelProtocol {
                 print(error.localizedDescription)
             }
         }
+        
+    }
+
+    func addNewBookToFirebase(_ selectedBook: Int, userComment: String?) {
+        
+        // Kayıt işlemi burada yapılacak.
+        let takenBook = bookDataModel[selectedBook].volumeInfo
+        let category = takenBook.categories?.first
+        let firebaseBookModel = FirebaseBookModel(title: takenBook.title ?? "-", description: takenBook.description ?? "-", author: takenBook.authors!.first!, imageLink: takenBook.imageLinks!.first!.value, userComment: userComment!, userEmail: "fakeemail@gmail.com", categories: category ?? "-")
+        
+        firebaseManager.addNewBookToFirebase(firebaseBookModel)
         
     }
 }

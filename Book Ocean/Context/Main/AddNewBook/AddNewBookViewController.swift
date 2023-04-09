@@ -19,6 +19,7 @@ class AddNewBookViewController: UIViewController, Transition {
     private var viewModel: AddNewBookViewModel = AddNewBookViewModel()
     let db = Firestore.firestore()
     
+    // MARK: - Life-cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,8 +28,10 @@ class AddNewBookViewController: UIViewController, Transition {
         viewModel.delegate = self
         viewModel.loadData(nil)
     }
-
-    func createAlertController(selectedBook: Int) {
+}
+// MARK: - Methods.
+extension AddNewBookViewController {
+    private func addNewBookToFirebase(selectedBook: Int) {
         let alertController = UIAlertController(title: "What is your comment about book?", message: "", preferredStyle: .alert)
 
         alertController.addTextField { (textField) in
@@ -38,14 +41,9 @@ class AddNewBookViewController: UIViewController, Transition {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
 
         let okAction = UIAlertAction(title: "Save", style: .default) { (action) in
-            if let textField = alertController.textFields?.first {
-                // Kayıt işlemi burada yapılacak.
-                let takenBook = self.viewModel.bookDataModel[selectedBook].volumeInfo
-                let category = takenBook.categories?.first
-                let firebaseBookModel = FirebaseBookModel(title: takenBook.title ?? "-", description: takenBook.description ?? "-", author: takenBook.authors!.first!, imageLink: takenBook.imageLinks!.first!.value, userComment: textField.text!, userEmail: "fakeemail@gmail.com", categories: category ?? "-")
-                // var ref: DocumentReference? = nil
-                self.db.collection("Books").addDocument(data: ["title": firebaseBookModel.title, "author": firebaseBookModel.author, "description": firebaseBookModel.description,
-                                                                     "imageLink": firebaseBookModel.imageLink, "userEmail": firebaseBookModel.userEmail, "categories": firebaseBookModel.categories, "userComment": firebaseBookModel.userComment])
+            if let userComment = alertController.textFields?.first {
+                self.viewModel.addNewBookToFirebase(selectedBook, userComment: userComment.text)
+
                 self.dismiss(animated: true)
             }
         }
@@ -65,7 +63,7 @@ extension AddNewBookViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // MARK: - Cell'e tıklanınca yeni sayfada seçilen kitabın özelliklerini vs göster ve kullanıcıdan yorumlarını alıp
         // Onları kaydedip sonrasında da Feed içerisinde göster onları.
-        createAlertController(selectedBook: indexPath.row)
+        addNewBookToFirebase(selectedBook: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

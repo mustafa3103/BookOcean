@@ -21,7 +21,7 @@ final class SignUpViewModel: SignUpViewModelProtocol {
     private var firebaseManager: FirebaseManager = FirebaseManager()
     
     func signUpNewUser(email: String, password: String, rePassword: String, name: String, surname: String) {
-        if password == rePassword {
+        if password == rePassword && password.count > 6 {
             let newUser = UserModel(email: email, name: name, surname: surname, password: password)
             let signUpResult = firebaseManager.signUpUser(user: newUser)
             

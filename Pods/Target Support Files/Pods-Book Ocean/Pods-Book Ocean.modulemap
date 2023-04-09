@@ -1,0 +1,6 @@
+framework module Pods_Book_Ocean {
+  umbrella header "Pods-Book Ocean-umbrella.h"
+
+  export *
+  module * { export * }
+}

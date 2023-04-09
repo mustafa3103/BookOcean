@@ -10,6 +10,6 @@ import Foundation
 struct UserModel {
     let email: String
     let name: String
-    let surname: String
-    let password: String
+    let surname: String?
+    let password: String?
 }

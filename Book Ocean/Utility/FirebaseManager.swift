@@ -9,13 +9,30 @@ import FirebaseFirestore
 import FirebaseAuth
 
 final class FirebaseManager {
+    
     var dbf: Firestore!
     // var auth: Auth! -> Bununla da dene sonrasında.
 
     init() {
         dbf = Firestore.firestore()
     }
-
+    
+    func getAllUsers() -> [UserModel]? {
+        var users: [UserModel]?
+        let firebaseUsersRef = dbf.collection("Users")
+        
+        firebaseUsersRef.getDocuments { querySnaphot, error in
+            if let querySnaphot {
+                for document in querySnaphot.documents {
+                    let data = document.data()
+                    
+                }
+            }
+        }
+        
+        return users
+    }
+    
     func loadDataFromFirebase(completion: @escaping ([FirebaseBookModel]) -> Void) {
         let firebaseBookRef = dbf.collection("Books")
         
@@ -44,7 +61,8 @@ final class FirebaseManager {
     
     func signUpUser(user: UserModel) -> Bool {
         var result = false
-        Auth.auth().createUser(withEmail: user.email, password: user.password) { authResult, error in
+        let userPassword = user.password ?? ""
+        Auth.auth().createUser(withEmail: user.email, password: userPassword) { authResult, error in
             if error != nil {
                 print("Error was occured while signing new user to the application.")
             }
@@ -57,6 +75,15 @@ final class FirebaseManager {
             }
         }
         return result
+    }
+
+    func getCurrentUserEmail() -> String {
+        Auth.auth().currentUser?.email ?? ""
+    }
+
+    func addNewBookToFirebase(_ firebaseBookModel: FirebaseBookModel) {
+        dbf.collection("Books").addDocument(data: ["title": firebaseBookModel.title, "author": firebaseBookModel.author, "description": firebaseBookModel.description,
+                                                                     "imageLink": firebaseBookModel.imageLink, "userEmail": firebaseBookModel.userEmail, "categories": firebaseBookModel.categories, "userComment": firebaseBookModel.userComment])
     }
 }
 
