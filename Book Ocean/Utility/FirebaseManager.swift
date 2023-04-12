@@ -17,20 +17,20 @@ final class FirebaseManager {
         dbf = Firestore.firestore()
     }
     
-    func getAllUsers() -> [UserModel]? {
-        var users: [UserModel]?
+    func getAllUsers(completion: @escaping ([UserModel]) -> Void) {
+        var users: [UserModel] = []
         let firebaseUsersRef = dbf.collection("Users")
         
         firebaseUsersRef.getDocuments { querySnaphot, error in
             if let querySnaphot {
                 for document in querySnaphot.documents {
                     let data = document.data()
-                    
+                    let user = UserModel(email: data["email"] as? String ?? "", name: data["name"] as? String ?? "", surname: nil, password: nil)
+                    users.append(user)
                 }
+                completion(users)
             }
         }
-        
-        return users
     }
     
     func loadDataFromFirebase(completion: @escaping ([FirebaseBookModel]) -> Void) {

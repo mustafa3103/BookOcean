@@ -9,6 +9,7 @@ import UIKit
 
 final class MainTableViewCell: UITableViewCell {
     
+    //MARK: - Outlets.
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userComment: UILabel!
     @IBOutlet weak var authorImageView: UIImageView!

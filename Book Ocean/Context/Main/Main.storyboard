@@ -85,21 +85,40 @@
             </objects>
             <point key="canvasLocation" x="1380" y="129.38388625592415"/>
         </scene>
-        <!--Book Recomend-->
+        <!--Book Recommend View Controller-->
         <scene sceneID="e8p-vB-BmP">
             <objects>
                 <viewController id="JNh-XJ-QfB" customClass="BookRecommendViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ZJ-uo-YEg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d51-aT-5xY">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" name="backgrounColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JNh-XJ-QfB" id="212-vk-xdN"/>
+                                    <outlet property="delegate" destination="JNh-XJ-QfB" id="tsv-yh-57g"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JIP-B5-S5m"/>
                         <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="JIP-B5-S5m" firstAttribute="bottom" secondItem="d51-aT-5xY" secondAttribute="bottom" id="3tZ-A4-RUH"/>
+                            <constraint firstItem="d51-aT-5xY" firstAttribute="leading" secondItem="JIP-B5-S5m" secondAttribute="leading" id="4SF-bC-CJD"/>
+                            <constraint firstItem="d51-aT-5xY" firstAttribute="top" secondItem="JIP-B5-S5m" secondAttribute="top" id="j9U-lN-cEE"/>
+                            <constraint firstItem="JIP-B5-S5m" firstAttribute="trailing" secondItem="d51-aT-5xY" secondAttribute="trailing" id="uLv-UU-POt"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Book Recomend" image="books.vertical" catalog="system" id="Hlf-Ot-5Ik"/>
+                    <navigationItem key="navigationItem" id="zf5-xT-UUP"/>
+                    <connections>
+                        <outlet property="bookRecommendTableView" destination="d51-aT-5xY" id="P4K-49-XA5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAt-hh-Soh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="781"/>
+            <point key="canvasLocation" x="1380" y="780.56872037914684"/>
         </scene>
         <!--Settings-->
         <scene sceneID="DVb-fk-ikN">
@@ -132,13 +151,32 @@
                     <connections>
                         <segue destination="tgq-hi-PV9" kind="relationship" relationship="viewControllers" id="1dJ-da-VaD"/>
                         <segue destination="i3I-rM-VJo" kind="relationship" relationship="viewControllers" id="iIM-hm-EEA"/>
-                        <segue destination="JNh-XJ-QfB" kind="relationship" relationship="viewControllers" id="l3I-UI-YE1"/>
+                        <segue destination="deH-m6-K1F" kind="relationship" relationship="viewControllers" id="l3I-UI-YE1"/>
                         <segue destination="5SD-yD-vdP" kind="relationship" relationship="viewControllers" id="hfE-BE-kEa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wl6-bf-yWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1791" y="478"/>
+        </scene>
+        <!--Book Recomend-->
+        <scene sceneID="lxc-F5-EXG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="deH-m6-K1F" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Book Recomend" image="books.vertical" catalog="system" id="Hlf-Ot-5Ik"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytr-ys-0LG">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JNh-XJ-QfB" kind="relationship" relationship="rootViewController" id="8Z9-7A-RF6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wp-Ye-DPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="450.76923076923077" y="780.56872037914684"/>
         </scene>
     </scenes>
     <resources>
