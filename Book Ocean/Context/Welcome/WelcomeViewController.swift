@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WelcomeViewController: UIViewController, Transition {
+final class WelcomeViewController: BaseViewController {
 
     // MARK: - Life cycle methods
     override func viewDidLoad() {

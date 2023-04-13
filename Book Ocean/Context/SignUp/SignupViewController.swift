@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class SignupViewController: UIViewController {
+final class SignupViewController: BaseViewController {
 
     // MARK: - Outlets.
     @IBOutlet weak var nameTextField: UITextField!
@@ -38,7 +38,7 @@ final class SignupViewController: UIViewController {
     }
 }
 
-extension SignupViewController: SignUpViewModelDelegate, Transition {
+extension SignupViewController: SignUpViewModelDelegate {
     func signUpStateControl(result: Bool) {
         if result {
             navigatePageWithPresent(nameText: "Main", identifier: "toMainTabBar")

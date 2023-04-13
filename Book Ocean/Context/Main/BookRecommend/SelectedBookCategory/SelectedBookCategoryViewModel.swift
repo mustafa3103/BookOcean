@@ -13,7 +13,7 @@ protocol SelectedBookCategoryDelegate: AnyObject {
 
 protocol SelectedBookCategoryProtocol: AnyObject {
     var delegate: SelectedBookCategoryDelegate? { get set }
-    func loadData(_ category: String)
+    func loadData()
 }
 
 final class SelectedBookCategoryViewModel: SelectedBookCategoryProtocol {
@@ -23,8 +23,19 @@ final class SelectedBookCategoryViewModel: SelectedBookCategoryProtocol {
     var selectedCategory: String?
     private var networkManager: NetworkManageer = NetworkManageer()
     
-    func loadData(_ category: String) {
-        let urlWithCategory =  "https://www.googleapis.com/books/v1/volumes?q=subject:\(category)&startIndex=0&maxResults=40"
-        
+    func loadData() {
+        let urlWithCategory =  "https://www.googleapis.com/books/v1/volumes?q=subject:\(selectedCategory ?? "")&startIndex=0&maxResults=40"
+        networkManager.service(url: urlWithCategory) { [weak self] (response: Result<Book, ServiceError>) in
+            guard let self = self else { return }
+            
+            switch response {
+            case .success(let data):
+                self.bookDataModel = data.items
+                self.delegate?.dataIsLoaded()
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+            
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectedBookCategoryViewController: UIViewController {
+final class SelectedBookCategoryViewController: BaseViewController {
 
     //MARK: - Outlets.
     @IBOutlet private var selectedBookCategoryTableView: UITableView!
@@ -20,21 +20,38 @@ class SelectedBookCategoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let takenData = selectedBookCategoryVM.selectedCategory ?? ""
-        print("Taken book category: \(takenData)")
+        selectedBookCategoryTableView.register(UINib(nibName: "NewBookTableViewCell", bundle: nil), forCellReuseIdentifier: "addNewBookCell")
+        selectedBookCategoryVM.delegate = self
+        selectedBookCategoryVM.loadData()
     }
 }
 
+//MARK: - Tableview delegate and datasource methods.
 extension SelectedBookCategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        selectedBookCategoryVM.bookDataModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "addNewBookCell", for: indexPath) as? NewBookTableViewCell else { return UITableViewCell() }
+        cell.bookName.text = selectedBookCategoryVM.bookDataModel[indexPath.row].volumeInfo.title
+        cell.authorName.text = selectedBookCategoryVM.bookDataModel[indexPath.row].volumeInfo.authors?.first
+        if let imageUrl = selectedBookCategoryVM.bookDataModel[indexPath.row].volumeInfo.imageLinks?.first?.value {
+            cell.bookImage.sd_setImage(with: URL(string: imageUrl))
+        }
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Selected book sayfasına segue yap ve seçilen kitapla alakalı özellikleri göster.
+        let selectedBook = selectedBookCategoryVM.bookDataModel[indexPath.row]
+        let storyboard = UIStoryboard(name: "SelectedBook", bundle: nil)
+        guard let selectedBookVC = storyboard.instantiateViewController(withIdentifier: "selectedBook") as? SelectedBookViewController else { return }
+        selectedBookVC.selectedBookVM.selectedBook = selectedBook
+        navigationController?.pushViewController(selectedBookVC, animated: true)
+    }
+}
+extension SelectedBookCategoryViewController: SelectedBookCategoryDelegate {
+    func dataIsLoaded() {
+        selectedBookCategoryTableView.reloadData()
     }
 }

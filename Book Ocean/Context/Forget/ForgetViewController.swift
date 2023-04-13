@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ForgetViewController: UIViewController {
+final class ForgetViewController: BaseViewController {
     
     //MARK: - Outlets.
     @IBOutlet weak var emailTextField: UITextField!

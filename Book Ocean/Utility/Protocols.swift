@@ -16,14 +16,14 @@ extension AlertShowable where Self: UIViewController {
 
     func showAlert(messageText: String?, titleText: String?) {
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 
     func showAlertWithHandler(messageText: String?, titleText: String?, handler: @escaping (UIAlertAction) -> Void) {
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .destructive, handler: handler))
-        alert.addAction(UIAlertAction(title: "İptal", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: handler))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         present(alert, animated: true)
     }
 }

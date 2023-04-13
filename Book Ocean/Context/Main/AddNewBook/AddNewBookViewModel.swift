@@ -18,7 +18,6 @@ protocol AddNewBookViewModelProtocol: AnyObject {
 
 final class AddNewBookViewModel: AddNewBookViewModelProtocol {
     
-    
     private var networkManager: NetworkManageer = NetworkManageer()
     private var firebaseManager: FirebaseManager = FirebaseManager()
 
@@ -33,10 +32,7 @@ final class AddNewBookViewModel: AddNewBookViewModelProtocol {
             baseUrl = "https://www.googleapis.com/books/v1/volumes?q=\(searchedBook)&startIndex=0&maxResults=40"
         }
         
-        
         // let apiKey = "AIzaSyChF3sRwYmKnTlUNmCa2pk2QfkRX8O6Zu8"
-
-        // let exampleUrl = "https://www.googleapis.com/books/v1/volumes?q=gogol"
         
         networkManager.service(url: baseUrl) { [weak self] (response: Result<Book, ServiceError>) in
             guard let self = self else { return }
@@ -49,7 +45,6 @@ final class AddNewBookViewModel: AddNewBookViewModelProtocol {
                 print(error.localizedDescription)
             }
         }
-        
     }
 
     func addNewBookToFirebase(_ selectedBook: Int, userComment: String?) {

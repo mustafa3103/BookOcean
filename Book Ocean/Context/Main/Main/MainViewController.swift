@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 // MARK: - Verileri Firebase üzerinden çekme işlemi bu alandan yapılacak.
-final class MainViewController: UIViewController, Transition {
+final class MainViewController: BaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var mainTableView: UITableView!

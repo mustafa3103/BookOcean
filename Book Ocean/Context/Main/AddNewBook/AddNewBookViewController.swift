@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import SDWebImage
 
-final class AddNewBookViewController: UIViewController, Transition {
+final class AddNewBookViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var addNewBookTableView: UITableView!

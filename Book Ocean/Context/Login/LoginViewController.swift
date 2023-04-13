@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController, Transition {
+final class LoginViewController: BaseViewController {
 
     //MARK: - Outlets
     @IBOutlet private weak var emailTextField: UITextField!
@@ -18,9 +18,6 @@ final class LoginViewController: UIViewController, Transition {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem?.tintColor = .white
         viewModel.delegate = self
     }
 

@@ -11,6 +11,7 @@
 		451FF4CF29E4166A00C1AFB9 /* BookRecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FF4CD29E4166A00C1AFB9 /* BookRecommendTableViewCell.swift */; };
 		451FF4D029E4166A00C1AFB9 /* BookRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451FF4CE29E4166A00C1AFB9 /* BookRecommendTableViewCell.xib */; };
 		451FF4D229E4196D00C1AFB9 /* BookRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FF4D129E4196D00C1AFB9 /* BookRecommendModel.swift */; };
+		4550DB7529E6EEF3000B647E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4550DB7429E6EEF3000B647E /* BaseViewController.swift */; };
 		456973B729E426C400288448 /* SelectedBookCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456973B629E426C400288448 /* SelectedBookCategoryViewModel.swift */; };
 		456973B929E4275F00288448 /* SelectedBookCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456973B829E4275F00288448 /* SelectedBookCategory.storyboard */; };
 		456973BB29E4277600288448 /* SelectedBookCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456973BA29E4277600288448 /* SelectedBookCategoryViewController.swift */; };
@@ -63,6 +64,7 @@
 		451FF4CD29E4166A00C1AFB9 /* BookRecommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRecommendTableViewCell.swift; sourceTree = "<group>"; };
 		451FF4CE29E4166A00C1AFB9 /* BookRecommendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookRecommendTableViewCell.xib; sourceTree = "<group>"; };
 		451FF4D129E4196D00C1AFB9 /* BookRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRecommendModel.swift; sourceTree = "<group>"; };
+		4550DB7429E6EEF3000B647E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		456973B629E426C400288448 /* SelectedBookCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBookCategoryViewModel.swift; sourceTree = "<group>"; };
 		456973B829E4275F00288448 /* SelectedBookCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectedBookCategory.storyboard; sourceTree = "<group>"; };
 		456973BA29E4277600288448 /* SelectedBookCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBookCategoryViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 			path = BookRecommendTableViewCell;
 			sourceTree = "<group>";
 		};
+		4550DB7329E6EED5000B647E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4550DB7429E6EEF3000B647E /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		456973B129E4264F00288448 /* SelectedBookCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +201,7 @@
 		5B1B94FA29C8E53E00F14804 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4550DB7329E6EED5000B647E /* Base */,
 				5B1B94E629C8E52100F14804 /* AppDelegate.swift */,
 				5B1B94E829C8E52100F14804 /* SceneDelegate.swift */,
 			);
@@ -492,6 +503,7 @@
 				5B88C36429DC9F22001D5ABC /* FirebaseBookModel.swift in Sources */,
 				5BBCBDAD29CF3C8A00E2094F /* MainViewController.swift in Sources */,
 				5BBCBDB729CF453300E2094F /* FriendsViewController.swift in Sources */,
+				4550DB7529E6EEF3000B647E /* BaseViewController.swift in Sources */,
 				451FF4D229E4196D00C1AFB9 /* BookRecommendModel.swift in Sources */,
 				5BBCBDC429CF4E9700E2094F /* MainTableViewCell.swift in Sources */,
 				5B1B951829C903F100F14804 /* ForgetViewModel.swift in Sources */,
@@ -588,6 +600,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -642,6 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

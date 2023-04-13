@@ -36,6 +36,5 @@ final class SignUpViewModel: SignUpViewModelProtocol {
             // Password unmatched.
             print("Password unmatched.")
         }
-        
     }
 }

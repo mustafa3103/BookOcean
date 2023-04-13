@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BookRecommendViewController: UIViewController, Transition {
+final class BookRecommendViewController: BaseViewController {
     
 
     //MARK: - Outlets.
@@ -44,7 +44,5 @@ extension BookRecommendViewController: UITableViewDelegate, UITableViewDataSourc
         guard let selectedBookCategoryVC = storyboard.instantiateViewController(withIdentifier: "selectedBookCategory") as? SelectedBookCategoryViewController else { return }
         selectedBookCategoryVC.selectedBookCategoryVM.selectedCategory = selectedCategory
         navigationController?.pushViewController(selectedBookCategoryVC, animated: true)
-        // navigatePageWithPush(nameText: "SelectedBookCategory", identifier: "selectedBookCategory", targetVC: SelectedBookViewController(), data: selectedCategory)
-        
     }
 }
