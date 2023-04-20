@@ -9,7 +9,6 @@ import UIKit
 
 final class BookRecommendViewController: BaseViewController {
     
-
     //MARK: - Outlets.
     @IBOutlet private var bookRecommendTableView: UITableView!
     

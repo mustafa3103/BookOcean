@@ -16,7 +16,43 @@ final class FirebaseManager {
     init() {
         dbf = Firestore.firestore()
     }
+
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error was occured while log out from app. Error is: \(error.localizedDescription)")
+        }
+    }
+
+    func changePassword(newPassword: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+            if let error {
+                // Error was occured while changing password.
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
     
+    func getCurrentUserEmail() -> String {
+        Auth.auth().currentUser?.email ?? ""
+    }
+
+    func getCurrentUserViaUserModel(completion: @escaping (UserModel) -> Void) {
+        let email = getCurrentUserEmail()
+        
+        getAllUsers { users in
+            for user in users {
+                if user.email == email {
+                    completion(user)
+                    break
+                }
+            }
+        }
+    }
+
     func getAllUsers(completion: @escaping ([UserModel]) -> Void) {
         var users: [UserModel] = []
         let firebaseUsersRef = dbf.collection("Users")
@@ -25,7 +61,7 @@ final class FirebaseManager {
             if let querySnaphot {
                 for document in querySnaphot.documents {
                     let data = document.data()
-                    let user = UserModel(email: data["email"] as? String ?? "", name: data["name"] as? String ?? "", surname: nil, password: nil)
+                    let user = UserModel(email: data["email"] as? String ?? "", name: data["name"] as? String ?? "", surname: data["surname"] as? String ?? "", password: data["password"] as? String ?? "")
                     users.append(user)
                 }
                 completion(users)
@@ -33,8 +69,8 @@ final class FirebaseManager {
         }
     }
     
-    func loadDataFromFirebase(completion: @escaping ([FirebaseBookModel]) -> Void) {
-        let firebaseBookRef = dbf.collection("Books")
+    func loadDataFromFirebase(collection: String, completion: @escaping ([FirebaseBookModel]) -> Void) {
+        let firebaseBookRef = dbf.collection(collection)
         
         firebaseBookRef.addSnapshotListener { querySnapshot, error in
             if let querySnapshot {
@@ -57,10 +93,6 @@ final class FirebaseManager {
                 completion([])
             }
         }
-    }
-    
-    func getCurrentUserEmail() -> String {
-        Auth.auth().currentUser?.email ?? ""
     }
 
     func loginWithFirebase(email: String, password: String, completion: @escaping (Bool) -> Void) {
@@ -96,8 +128,8 @@ final class FirebaseManager {
                                                    "surname": userModel.surname ?? ""])
     }
 
-    func addNewBookToFirebase(_ firebaseBookModel: FirebaseBookModel) {
-        dbf.collection("Books").addDocument(data: ["title": firebaseBookModel.title, "author": firebaseBookModel.author, "description": firebaseBookModel.description,
+    func addNewBookToFirebase(collection: String, _ firebaseBookModel: FirebaseBookModel) {
+        dbf.collection(collection).addDocument(data: ["title": firebaseBookModel.title, "author": firebaseBookModel.author, "description": firebaseBookModel.description,
                                                                      "imageLink": firebaseBookModel.imageLink, "userEmail": firebaseBookModel.userEmail, "categories": firebaseBookModel.categories, "userComment": firebaseBookModel.userComment])
     }
 }

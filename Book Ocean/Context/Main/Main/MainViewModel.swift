@@ -21,7 +21,7 @@ final class MainViewModel: MainViewModelProtocol {
     private var firebaseManager: FirebaseManager = FirebaseManager()
 
     func loadData() {
-        firebaseManager.loadDataFromFirebase { takenBooks in
+        firebaseManager.loadDataFromFirebase(collection: "Books") { takenBooks in
             self.delegate?.loadedData(takenBooks: takenBooks)
         }
     }

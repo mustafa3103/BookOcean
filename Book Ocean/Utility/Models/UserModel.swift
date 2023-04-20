@@ -12,4 +12,5 @@ struct UserModel {
     let name: String
     let surname: String?
     let password: String?
+    var friends: [UserModel]?
 }

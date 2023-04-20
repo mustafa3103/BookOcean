@@ -47,6 +47,7 @@ extension SelectedBookCategoryViewController: UITableViewDataSource, UITableView
         let storyboard = UIStoryboard(name: "SelectedBook", bundle: nil)
         guard let selectedBookVC = storyboard.instantiateViewController(withIdentifier: "selectedBook") as? SelectedBookViewController else { return }
         selectedBookVC.selectedBookVM.selectedBook = selectedBook
+        selectedBookVC.buttonState = true
         navigationController?.pushViewController(selectedBookVC, animated: true)
     }
 }

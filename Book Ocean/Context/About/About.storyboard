@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--About View Controller-->
+        <scene sceneID="zCn-qk-1o7">
+            <objects>
+                <viewController storyboardIdentifier="aboutVC" modalPresentationStyle="fullScreen" id="x5Y-wV-ZOH" customClass="AboutViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P6W-re-YGd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="QJa-1l-mih">
+                                <rect key="frame" x="16" y="59" width="361" height="252"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="Tc7-LM-zL8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioj-Am-UCE">
+                                <rect key="frame" x="10" y="321" width="373" height="334.33333333333326"/>
+                                <string key="text">Book Ocean is a book-oriented social cataloging and social network established in Turkey. Book Ocean helps you choose the book to read next. It allows you to discover readers with similar reading tastes and different authors.
+
+In Book Ocean, readers mark the books they read and want to read on their profiles. While marking this, they can share whether they like the book or not by commenting on the book. This way you can see other people's comments about the book.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="buttonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sHq-Yq-U70"/>
+                        <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="QJa-1l-mih" firstAttribute="leading" secondItem="P6W-re-YGd" secondAttribute="leading" constant="16" id="KSC-sp-ODY"/>
+                            <constraint firstItem="ioj-Am-UCE" firstAttribute="top" secondItem="QJa-1l-mih" secondAttribute="bottom" constant="10" id="NhT-Ou-6PX"/>
+                            <constraint firstItem="ioj-Am-UCE" firstAttribute="leading" secondItem="sHq-Yq-U70" secondAttribute="leading" constant="10" id="bR4-7k-Wg5"/>
+                            <constraint firstItem="sHq-Yq-U70" firstAttribute="trailing" secondItem="ioj-Am-UCE" secondAttribute="trailing" constant="10" id="cXA-JR-CKB"/>
+                            <constraint firstItem="sHq-Yq-U70" firstAttribute="trailing" secondItem="QJa-1l-mih" secondAttribute="trailing" constant="16" id="iLw-Ja-Oc0"/>
+                            <constraint firstItem="QJa-1l-mih" firstAttribute="top" secondItem="sHq-Yq-U70" secondAttribute="top" id="tXB-fJ-itg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="browser" id="5cu-8a-bIu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3M-pq-fv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3182.4427480916029" y="2177.4647887323945"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book2" width="549" height="454"/>
+        <namedColor name="backgrounColor">
+            <color red="1" green="0.9570000171661377" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="buttonColor">
+            <color red="0.70599997043609619" green="0.37599998712539673" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -16,33 +16,48 @@ final class SelectedBookViewController: BaseViewController {
     @IBOutlet private var selectedAuthorName: UILabel!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var selectedBookDesc: UITextView!
-    
+
     //MARK: - Properties.
     var selectedBookVM: SelectedBookViewModel = SelectedBookViewModel()
+    var buttonState: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        saveButton.layer.cornerRadius = 25
-        guard let selectedBook = selectedBookVM.selectedBook else { return }
-        setData(selectedBook)
+        updateUI(buttonState)
+        
+        
     }
 
-    private func setData(_ selectedBook: Items) {
-        
-        if let imageUrl = selectedBook.volumeInfo.imageLinks?.first?.value {
-            selectedBookImageView.sd_setImage(with: URL(string: imageUrl))
+    private func updateUI(_ state: Bool) {
+        if state {
+            saveButton.isHidden = false
+            guard let selectedBook = selectedBookVM.selectedBook else { return }
+            
+            if let imageUrl = selectedBook.volumeInfo.imageLinks?.first?.value {
+                selectedBookImageView.sd_setImage(with: URL(string: imageUrl))
+            }
+
+            selectedBookName.text = selectedBook.volumeInfo.title
+            selectedAuthorName.text = selectedBook.volumeInfo.authors?.first
+            selectedBookDesc.text = selectedBook.volumeInfo.description
+        } else {
+            saveButton.isHidden = true
+            guard let selectedBook = selectedBookVM.selectedBookFromFB else { return }
+            
+            selectedBookImageView.sd_setImage(with: URL(string: selectedBook.imageLink))
+            selectedBookName.text = selectedBook.title
+            selectedAuthorName.text = selectedBook.author
+            selectedBookDesc.text = selectedBook.description
         }
-        
-        selectedBookName.text = selectedBook.volumeInfo.title
-        selectedAuthorName.text = selectedBook.volumeInfo.authors?.first
-        selectedBookDesc.text = selectedBook.volumeInfo.description
+        saveButton.layer.cornerRadius = 25
     }
 
-    @IBAction func saveButtonClicked(_ sender: UIButton) {
-        showAlertWithHandler(messageText: "Book", titleText: "xx") { _ in
-            // Bu alana save butonuna basıldıktan sonra seçilen kitabı firebase postala.
+    @IBAction private func saveButtonClicked(_ sender: UIButton) {
+        guard let selectedBook = selectedBookVM.selectedBook?.volumeInfo else { return }
+        showAlertWithHandler(titleText: "You want to save selected book to your list.", messageText: "\(selectedBook.title ?? "")", cancelButtonActive: true) { _ in
+            self.selectedBookVM.addSelectedBookToFirebase()
         }
     }
 }

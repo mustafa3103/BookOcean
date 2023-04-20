@@ -8,22 +8,24 @@
 import UIKit
 
 protocol AlertShowable: AnyObject {
-    func showAlert(messageText: String?, titleText: String?)
-    func showAlertWithHandler(messageText: String?, titleText: String?, handler: @escaping (UIAlertAction) -> Void)
+    func showAlert(titleText: String?, messageText: String?)
+    func showAlertWithHandler(titleText: String?, messageText: String?, cancelButtonActive: Bool, handler: @escaping (UIAlertAction) -> Void)
 }
 
 extension AlertShowable where Self: UIViewController {
 
-    func showAlert(messageText: String?, titleText: String?) {
+    func showAlert(titleText: String?, messageText: String?) {
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 
-    func showAlertWithHandler(messageText: String?, titleText: String?, handler: @escaping (UIAlertAction) -> Void) {
+    func showAlertWithHandler(titleText: String?, messageText: String?, cancelButtonActive: Bool, handler: @escaping (UIAlertAction) -> Void) {
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: handler))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        if cancelButtonActive {
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        }
         present(alert, animated: true)
     }
 }

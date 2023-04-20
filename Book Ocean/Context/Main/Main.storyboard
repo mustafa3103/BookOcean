@@ -9,6 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="wGr-E2-mhe">
+            <objects>
+                <tabBarController storyboardIdentifier="toMainTabBar" modalPresentationStyle="fullScreen" id="e1K-fV-DuQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ymq-CS-RKh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="textfieldColor"/>
+                        <color key="tintColor" name="textfieldColor"/>
+                        <color key="barTintColor" name="textfieldColor"/>
+                        <color key="selectedImageTintColor" name="buttonColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tgq-hi-PV9" kind="relationship" relationship="viewControllers" id="1dJ-da-VaD"/>
+                        <segue destination="i3I-rM-VJo" kind="relationship" relationship="viewControllers" id="iIM-hm-EEA"/>
+                        <segue destination="deH-m6-K1F" kind="relationship" relationship="viewControllers" id="l3I-UI-YE1"/>
+                        <segue destination="tvP-ar-eym" kind="relationship" relationship="viewControllers" id="pFF-Yr-0FK"/>
+                        <segue destination="Z0p-Ua-RpK" kind="relationship" relationship="viewControllers" id="9Si-ar-5PE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wl6-bf-yWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-625" y="736"/>
+        </scene>
         <!--Main-->
         <scene sceneID="3cd-bw-rmE">
             <objects>
@@ -85,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="1380" y="129.38388625592415"/>
         </scene>
-        <!--Book Recommend View Controller-->
+        <!--Categories-->
         <scene sceneID="e8p-vB-BmP">
             <objects>
                 <viewController id="JNh-XJ-QfB" customClass="BookRecommendViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d51-aT-5xY">
-                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <rect key="frame" x="0.0" y="143" width="390" height="618"/>
                                 <color key="backgroundColor" name="backgrounColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JNh-XJ-QfB" id="212-vk-xdN"/>
@@ -111,7 +135,7 @@
                             <constraint firstItem="JIP-B5-S5m" firstAttribute="trailing" secondItem="d51-aT-5xY" secondAttribute="trailing" id="uLv-UU-POt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zf5-xT-UUP"/>
+                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="always" id="zf5-xT-UUP"/>
                     <connections>
                         <outlet property="bookRecommendTableView" destination="d51-aT-5xY" id="P4K-49-XA5"/>
                     </connections>
@@ -127,37 +151,124 @@
                     <view key="view" contentMode="scaleToFill" id="ZgN-AB-EY4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="uWn-Ho-7el">
+                                <rect key="frame" x="16" y="143" width="358" height="252"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="5V6-ZG-OK9"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tb0-fs-esK" userLabel="buttonsStack">
+                                <rect key="frame" x="10" y="495" width="370" height="206"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gle-ZN-RwT">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="2gl-df-KBE"/>
+                                        </constraints>
+                                        <color key="tintColor" name="textfieldColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="About"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="About" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
+                                            <color key="baseBackgroundColor" name="buttonColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="aboutButtonClicked:" destination="5SD-yD-vdP" eventType="touchUpInside" id="N79-XG-6jT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-ab-VL6">
+                                        <rect key="frame" x="0.0" y="77" width="370" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="J7t-as-cCI"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Change Password" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
+                                            <color key="baseBackgroundColor" name="buttonColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="changePasswordButtonClicked:" destination="5SD-yD-vdP" eventType="touchUpInside" id="DK8-WD-GPd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69o-TP-nXJ">
+                                        <rect key="frame" x="0.0" y="154" width="370" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="HHI-1s-0bB"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Exit" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
+                                            <color key="baseBackgroundColor" name="buttonColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="exitButtonClicked:" destination="5SD-yD-vdP" eventType="touchUpInside" id="Stv-HB-pdx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jNf-oX-GDd"/>
                         <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="jNf-oX-GDd" firstAttribute="trailing" secondItem="uWn-Ho-7el" secondAttribute="trailing" constant="16" id="1r4-fl-FR6"/>
+                            <constraint firstItem="uWn-Ho-7el" firstAttribute="leading" secondItem="jNf-oX-GDd" secondAttribute="leading" constant="16" id="86b-gF-y9X"/>
+                            <constraint firstItem="uWn-Ho-7el" firstAttribute="top" secondItem="jNf-oX-GDd" secondAttribute="top" id="DV7-G0-HlC"/>
+                            <constraint firstItem="tb0-fs-esK" firstAttribute="top" secondItem="uWn-Ho-7el" secondAttribute="bottom" constant="100" id="PbB-JL-dhX"/>
+                            <constraint firstItem="jNf-oX-GDd" firstAttribute="trailing" secondItem="tb0-fs-esK" secondAttribute="trailing" constant="10" id="ePk-PO-DRr"/>
+                            <constraint firstItem="tb0-fs-esK" firstAttribute="leading" secondItem="jNf-oX-GDd" secondAttribute="leading" constant="10" id="zpa-aI-gg9"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="aqi.medium" catalog="system" id="Ddj-Oe-9IZ"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="RA6-vQ-zV1"/>
+                    <connections>
+                        <outlet property="aboutButtonOutlet" destination="Gle-ZN-RwT" id="jIe-gj-uf0"/>
+                        <outlet property="changePasswordButtonOutlet" destination="Pp5-ab-VL6" id="N3u-3E-nls"/>
+                        <outlet property="exitButtonOutlet" destination="69o-TP-nXJ" id="6wy-95-LMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4a-49-iDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="1435"/>
+            <point key="canvasLocation" x="1356.9230769230769" y="2165.4028436018957"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="wGr-E2-mhe">
+        <!--Reading List-->
+        <scene sceneID="Ev8-QL-ubZ">
             <objects>
-                <tabBarController storyboardIdentifier="toMainTabBar" modalPresentationStyle="fullScreen" id="e1K-fV-DuQ" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ymq-CS-RKh">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="textfieldColor"/>
-                        <color key="tintColor" name="textfieldColor"/>
-                        <color key="barTintColor" name="textfieldColor"/>
-                        <color key="selectedImageTintColor" name="buttonColor"/>
-                    </tabBar>
+                <viewController id="wZ5-vW-wmR" customClass="ReadingListViewController" customModule="Book_Ocean" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5kA-OC-Jw2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tmw-IX-MrY">
+                                <rect key="frame" x="0.0" y="143" width="390" height="618"/>
+                                <color key="backgroundColor" name="backgrounColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wZ5-vW-wmR" id="wnB-13-Zut"/>
+                                    <outlet property="delegate" destination="wZ5-vW-wmR" id="ztS-hG-8tE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DE7-fa-D6V"/>
+                        <color key="backgroundColor" name="backgrounColor"/>
+                        <constraints>
+                            <constraint firstItem="DE7-fa-D6V" firstAttribute="bottom" secondItem="tmw-IX-MrY" secondAttribute="bottom" id="gLZ-IV-1J3"/>
+                            <constraint firstItem="DE7-fa-D6V" firstAttribute="trailing" secondItem="tmw-IX-MrY" secondAttribute="trailing" id="hSa-ad-rzW"/>
+                            <constraint firstItem="tmw-IX-MrY" firstAttribute="top" secondItem="DE7-fa-D6V" secondAttribute="top" id="nJA-Fk-hNh"/>
+                            <constraint firstItem="tmw-IX-MrY" firstAttribute="leading" secondItem="DE7-fa-D6V" secondAttribute="leading" id="zL0-GK-XfW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reading List" largeTitleDisplayMode="always" id="zqH-Ph-OVb"/>
                     <connections>
-                        <segue destination="tgq-hi-PV9" kind="relationship" relationship="viewControllers" id="1dJ-da-VaD"/>
-                        <segue destination="i3I-rM-VJo" kind="relationship" relationship="viewControllers" id="iIM-hm-EEA"/>
-                        <segue destination="deH-m6-K1F" kind="relationship" relationship="viewControllers" id="l3I-UI-YE1"/>
-                        <segue destination="5SD-yD-vdP" kind="relationship" relationship="viewControllers" id="hfE-BE-kEa"/>
+                        <outlet property="readingListTableView" destination="tmw-IX-MrY" id="FWx-dM-crr"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wl6-bf-yWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gX1-E4-diQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1791" y="478"/>
+            <point key="canvasLocation" x="1380" y="1454.5023696682463"/>
         </scene>
         <!--Book Recomend-->
         <scene sceneID="lxc-F5-EXG">
@@ -165,9 +276,15 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="deH-m6-K1F" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Book Recomend" image="books.vertical" catalog="system" id="Hlf-Ot-5Ik"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytr-ys-0LG">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ytr-ys-0LG">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -178,9 +295,62 @@
             </objects>
             <point key="canvasLocation" x="450.76923076923077" y="780.56872037914684"/>
         </scene>
+        <!--Reading List-->
+        <scene sceneID="8D8-ad-2nw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tvP-ar-eym" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reading List" image="bookmark.fill" catalog="system" id="ydD-e3-MS8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="zrK-uI-xiN">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wZ5-vW-wmR" kind="relationship" relationship="rootViewController" id="WrJ-1s-Hvi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufJ-jh-61y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="1455"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="rIS-y2-33O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z0p-Ua-RpK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="aqi.medium" catalog="system" id="Ddj-Oe-9IZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="B6f-zn-stf">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="buttonColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="buttonColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5SD-yD-vdP" kind="relationship" relationship="rootViewController" id="orW-lM-um0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f81-SL-9Ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="2206"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aqi.medium" catalog="system" width="128" height="120"/>
+        <image name="book2" width="549" height="454"/>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
