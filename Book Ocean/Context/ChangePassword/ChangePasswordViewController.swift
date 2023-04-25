@@ -16,8 +16,6 @@ final class ChangePasswordViewController: BaseViewController {
     
     @IBOutlet var buttonOutlet: UIButton!
     
-    
-    
     //MARK: - Properties.
     private var changePasswordViewModel: ChangePasswordViewModel = ChangePasswordViewModel()
 
@@ -27,11 +25,10 @@ final class ChangePasswordViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         changePasswordViewModel.delegate = self
-        
     }
-    
+
     //MARK: - Functions.
-    @IBAction func changePasswordButtonClicked(_ sender: UIButton) {
+    @IBAction private func changePasswordButtonClicked(_ sender: UIButton) {
         guard let oldPassword = oldPasswordTextField.text else { return }
         guard let newPassword = newPasswordTextField.text else { return }
         guard let newPasswordAgain = newPasswordAgainTextField.text else { return }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FriendsViewModelDelegate: AnyObject {
-    func loadedFriends(takenFriends: UserModel)
+    func loadedFriends()
 }
 
 protocol FriendsViewModelProtocol: AnyObject {
@@ -19,10 +19,12 @@ final class FriendsViewModel: FriendsViewModelProtocol {
     
     weak var delegate: FriendsViewModelDelegate?
     private var firebaseManager: FirebaseManager = FirebaseManager()
+    var userFriends: [UserModel] = [UserModel]()
     
     func loadFriends() {
-        firebaseManager.getCurrentUserViaUserModel { user in
-            self.delegate?.loadedFriends(takenFriends: user)
+        firebaseManager.getCurrentUserFriends { friends in
+            self.userFriends = friends
+            self.delegate?.loadedFriends()
         }
     }
 }

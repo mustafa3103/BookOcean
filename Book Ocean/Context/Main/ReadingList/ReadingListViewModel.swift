@@ -21,8 +21,12 @@ final class ReadingListViewModel: ReadingListViewModelProtocol {
     private var firebaseManager: FirebaseManager = FirebaseManager()
     
     func loadDataFromFirebase() {
-        firebaseManager.loadDataFromFirebase(collection: "SelectedBooks") { selectedBook in
-            self.books = selectedBook
+//        firebaseManager.loadDataFromFirebase(collection: "SelectedBooks") { selectedBook in
+//            self.books = selectedBook
+//            self.delegate?.loadedData()
+//        }
+        firebaseManager.loadReadingList { readingListBooks in
+            self.books = readingListBooks
             self.delegate?.loadedData()
         }
     }

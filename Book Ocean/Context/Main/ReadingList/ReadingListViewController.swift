@@ -9,25 +9,23 @@ import UIKit
 
 final class ReadingListViewController: BaseViewController {
 
-    //MARK: - Bu sayafada yapılacaklar.
-    // Kullancının okuma listesine eklediği kitapları göster
-    // Tıklandıktan sonra o kitap hakkında detaylı bilgi gösterimi yap.
-    
     //MARK: - Outlets.
-    @IBOutlet var readingListTableView: UITableView!
-    
+    @IBOutlet private var readingListTableView: UITableView!
     
     //MARK: - Properties.
     private var readingListVM: ReadingListViewModel = ReadingListViewModel()
 
+    // MARK: - Life cycle methods.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        readingListVM.loadDataFromFirebase()
         readingListVM.delegate = self
         
         readingListTableView.register(UINib(nibName: "NewBookTableViewCell", bundle: nil), forCellReuseIdentifier: "addNewBookCell")
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        readingListVM.loadDataFromFirebase()
     }
 }
 
@@ -49,7 +47,6 @@ extension ReadingListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Buradan gelirse false yapıcaksın.
         let selectedBook = readingListVM.books[indexPath.row]
         let storyboard = UIStoryboard(name: "SelectedBook", bundle: nil)
         guard let selectedBookVC = storyboard.instantiateViewController(withIdentifier: "selectedBook") as? SelectedBookViewController else { return }

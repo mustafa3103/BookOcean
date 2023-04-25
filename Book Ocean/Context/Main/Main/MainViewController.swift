@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-// MARK: - Verileri Firebase üzerinden çekme işlemi bu alandan yapılacak.
+
 final class MainViewController: BaseViewController {
     
     // MARK: - Outlets
@@ -26,11 +26,12 @@ final class MainViewController: BaseViewController {
         mainViewModel.delegate = self
     }
     
-    @IBAction func addNewBook(_ sender: UIButton) {
+    @IBAction private func addNewBook(_ sender: UIButton) {
         // Segue to New Items toAddNewBook
         navigatePageWithPresent(nameText: "AddNewBook", identifier: "toAddNewBook")
     }
 }
+
 // MARK: - TableView delegate and datasource methods.
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

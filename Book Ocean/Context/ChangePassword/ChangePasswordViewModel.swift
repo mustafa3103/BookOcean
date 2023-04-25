@@ -16,10 +16,10 @@ protocol ChangePasswordViewModelProtocol: AnyObject {
 }
 
 final class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
-    
+
     weak var delegate: ChangePasswordViewModelDelegate?
     private var firebaseManager: FirebaseManager = FirebaseManager()
-    
+
     func changePassword(oldPassword: String, newPassword: String) {
         let currentUserEmail = firebaseManager.getCurrentUserEmail()
         var currentUserModel: UserModel?

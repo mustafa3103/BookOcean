@@ -16,7 +16,6 @@ final class SettingsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     @IBAction func aboutButtonClicked(_ sender: UIButton) {
@@ -27,7 +26,6 @@ final class SettingsViewController: BaseViewController {
         // Şifreyi değiştirme yerine segue yap.
         navigatePageWithPush(nameText: "ChangePassword", identifier: "changePassword")
     }
-    
     
     @IBAction func exitButtonClicked(_ sender: UIButton) {
         showAlertWithHandler(titleText: "Are you sure want to exit from application?", messageText: "", cancelButtonActive: true) { _ in

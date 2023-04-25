@@ -26,8 +26,6 @@ final class SelectedBookViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         updateUI(buttonState)
-        
-        
     }
 
     private func updateUI(_ state: Bool) {

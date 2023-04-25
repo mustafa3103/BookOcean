@@ -20,6 +20,11 @@
 		456973BE29E447D200288448 /* SelectedBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456973BD29E447D200288448 /* SelectedBookViewController.swift */; };
 		456973C029E447DD00288448 /* SelectedBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456973BF29E447DD00288448 /* SelectedBook.storyboard */; };
 		456973C229E4480D00288448 /* SelectedBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456973C129E4480D00288448 /* SelectedBookViewModel.swift */; };
+		457748BB29F1A3000041640B /* SearchFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457748BA29F1A3000041640B /* SearchFriendViewController.swift */; };
+		457748BD29F1A30E0041640B /* SearchFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 457748BC29F1A30E0041640B /* SearchFriend.storyboard */; };
+		457748BF29F1A31F0041640B /* SearchFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457748BE29F1A31F0041640B /* SearchFriendViewModel.swift */; };
+		457748C329F1A44F0041640B /* FriendCustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457748C129F1A44F0041640B /* FriendCustomCellTableViewCell.swift */; };
+		457748C429F1A44F0041640B /* FriendCustomCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457748C229F1A44F0041640B /* FriendCustomCellTableViewCell.xib */; };
 		45801A5329EB0C29000D2CAF /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45801A5229EB0C29000D2CAF /* ChangePassword.storyboard */; };
 		45801A5529EB0C36000D2CAF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45801A5429EB0C36000D2CAF /* ChangePasswordViewController.swift */; };
 		45801A5729EB0C45000D2CAF /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45801A5629EB0C45000D2CAF /* ChangePasswordViewModel.swift */; };
@@ -80,6 +85,11 @@
 		456973BD29E447D200288448 /* SelectedBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBookViewController.swift; sourceTree = "<group>"; };
 		456973BF29E447DD00288448 /* SelectedBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectedBook.storyboard; sourceTree = "<group>"; };
 		456973C129E4480D00288448 /* SelectedBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBookViewModel.swift; sourceTree = "<group>"; };
+		457748BA29F1A3000041640B /* SearchFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewController.swift; sourceTree = "<group>"; };
+		457748BC29F1A30E0041640B /* SearchFriend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchFriend.storyboard; sourceTree = "<group>"; };
+		457748BE29F1A31F0041640B /* SearchFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewModel.swift; sourceTree = "<group>"; };
+		457748C129F1A44F0041640B /* FriendCustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		457748C229F1A44F0041640B /* FriendCustomCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCustomCellTableViewCell.xib; sourceTree = "<group>"; };
 		45801A5229EB0C29000D2CAF /* ChangePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
 		45801A5429EB0C36000D2CAF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		45801A5629EB0C45000D2CAF /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +197,25 @@
 				456973BF29E447DD00288448 /* SelectedBook.storyboard */,
 			);
 			path = SelectedBook;
+			sourceTree = "<group>";
+		};
+		457748B929F1A2BA0041640B /* SearchFriend */ = {
+			isa = PBXGroup;
+			children = (
+				457748BE29F1A31F0041640B /* SearchFriendViewModel.swift */,
+				457748BA29F1A3000041640B /* SearchFriendViewController.swift */,
+				457748BC29F1A30E0041640B /* SearchFriend.storyboard */,
+			);
+			path = SearchFriend;
+			sourceTree = "<group>";
+		};
+		457748C029F1A4010041640B /* FriendCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				457748C129F1A44F0041640B /* FriendCustomCellTableViewCell.swift */,
+				457748C229F1A44F0041640B /* FriendCustomCellTableViewCell.xib */,
+			);
+			path = FriendCustomCell;
 			sourceTree = "<group>";
 		};
 		45801A5129EB0C12000D2CAF /* ChangePassword */ = {
@@ -401,8 +430,8 @@
 			children = (
 				456973B129E4264F00288448 /* SelectedBookCategory */,
 				451FF4CC29E4163C00C1AFB9 /* BookRecommendTableViewCell */,
-				5BBCBDB829CF454700E2094F /* BookRecommendViewController.swift */,
 				5BBCBDBE29CF45A800E2094F /* BookRecommendViewModel.swift */,
+				5BBCBDB829CF454700E2094F /* BookRecommendViewController.swift */,
 			);
 			path = BookRecommend;
 			sourceTree = "<group>";
@@ -410,6 +439,8 @@
 		5BBCBDB529CF44A000E2094F /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				457748C029F1A4010041640B /* FriendCustomCell */,
+				457748B929F1A2BA0041640B /* SearchFriend */,
 				5BBCBDB629CF453300E2094F /* FriendsViewController.swift */,
 				5BBCBDBC29CF459300E2094F /* FriendsViewModel.swift */,
 			);
@@ -498,6 +529,8 @@
 				452C540629EB2C3F00CFA934 /* About.storyboard in Resources */,
 				5BBCBDC529CF4E9700E2094F /* MainTableViewCell.xib in Resources */,
 				5B1B950329C8F16800F14804 /* Login.storyboard in Resources */,
+				457748BD29F1A30E0041640B /* SearchFriend.storyboard in Resources */,
+				457748C429F1A44F0041640B /* FriendCustomCellTableViewCell.xib in Resources */,
 				5B1B94F329C8E52300F14804 /* LaunchScreen.storyboard in Resources */,
 				5B1B94FD29C8E57D00F14804 /* Welcome.storyboard in Resources */,
 				5BBCBDAB29CF3C3300E2094F /* Main.storyboard in Resources */,
@@ -583,9 +616,12 @@
 				5B1B951129C901BF00F14804 /* SignupViewModel.swift in Sources */,
 				5B1B94FF29C8E59000F14804 /* WelcomeViewController.swift in Sources */,
 				459239AE29E4C97900043B3E /* DataTransformer.swift in Sources */,
+				457748BB29F1A3000041640B /* SearchFriendViewController.swift in Sources */,
 				5B39218729D0D5340052D56F /* NewBookTableViewCell.swift in Sources */,
 				5BBCBDBD29CF459300E2094F /* FriendsViewModel.swift in Sources */,
 				5B00671829DA216A0051DDA1 /* NetworkManager.swift in Sources */,
+				457748C329F1A44F0041640B /* FriendCustomCellTableViewCell.swift in Sources */,
+				457748BF29F1A31F0041640B /* SearchFriendViewModel.swift in Sources */,
 				5BBCBDBB29CF455B00E2094F /* SettingsViewController.swift in Sources */,
 				5B32F52129DE69D000A8C125 /* UserModel.swift in Sources */,
 				5B1B94E729C8E52100F14804 /* AppDelegate.swift in Sources */,

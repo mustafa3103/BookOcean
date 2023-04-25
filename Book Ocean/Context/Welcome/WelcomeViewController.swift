@@ -12,8 +12,6 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - Actions

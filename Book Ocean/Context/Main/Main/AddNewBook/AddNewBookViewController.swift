@@ -11,11 +11,11 @@ import SDWebImage
 
 final class AddNewBookViewController: BaseViewController {
 
-    // MARK: - Outlets
+    // MARK: - Outlets.
     @IBOutlet private weak var addNewBookTableView: UITableView!
     @IBOutlet private weak var addNewBookSearchBar: UISearchBar!
     
-    // MARK: - Properties
+    // MARK: - Properties.
     private var viewModel: AddNewBookViewModel = AddNewBookViewModel()
     let db = Firestore.firestore()
     
@@ -56,6 +56,7 @@ extension AddNewBookViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
 // MARK: - TableView delegate and datasource methods.
 extension AddNewBookViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,8 +64,6 @@ extension AddNewBookViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // MARK: - Cell'e tıklanınca yeni sayfada seçilen kitabın özelliklerini vs göster ve kullanıcıdan yorumlarını alıp
-        // Onları kaydedip sonrasında da Feed içerisinde göster onları.
         addNewBookToFirebase(selectedBook: indexPath.row)
     }
 
@@ -78,6 +77,7 @@ extension AddNewBookViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
 // MARK: - UISearchBarDelegate methods.
 extension AddNewBookViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

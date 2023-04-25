@@ -15,15 +15,15 @@ final class LoginViewController: BaseViewController {
     
     //MARK: - Properties
     private var viewModel: LoginViewModel = LoginViewModel()
-    
+
+    // MARK: - Life cycle methods.
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
     }
 
-    @IBAction func loginButtonClicked(_ sender: UIButton) {
+    @IBAction private func loginButtonClicked(_ sender: UIButton) {
         
-        // toMainTabBar
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
@@ -34,7 +34,7 @@ final class LoginViewController: BaseViewController {
         }
     }
     
-    @IBAction func forgetButtonClicked(_ sender: UIButton) {
+    @IBAction private func forgetButtonClicked(_ sender: UIButton) {
         navigatePageWithPresent(nameText: "Forget", identifier: "forgetScreen")
     }
 }

@@ -8,9 +8,9 @@
 import UIKit
 
 final class AboutViewController: BaseViewController {
-    
+
+    // MARK: - Life cycle methods.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }

@@ -9,19 +9,48 @@ import UIKit
 
 final class FriendsViewController: BaseViewController {
 
+    //MARK: - Outlets.
+    @IBOutlet var friendsTableView: UITableView!
+    
+    //MARK: - Properties.
     private var viewModel: FriendsViewModel = FriendsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        friendsTableView.register(UINib(nibName: "FriendCustomCellTableViewCell", bundle: nil), forCellReuseIdentifier: "searchFriend")
         viewModel.delegate = self
         viewModel.loadFriends()
+    }
+
+    @IBAction private func searchButtonClicked(_ sender: UIButton) {
+        navigatePageWithPush(nameText: "SearchFriend", identifier: "searchFriend")
     }
 }
 
 extension FriendsViewController: FriendsViewModelDelegate {
-    func loadedFriends(takenFriends: UserModel) {
-        let friend = takenFriends
+    func loadedFriends() {
+        friendsTableView.reloadData()
+    }
+}
+
+extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.userFriends.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchFriend", for: indexPath) as? FriendCustomCellTableViewCell else { return UITableViewCell() }
+        
+        
+        cell.userName.text = viewModel.userFriends[indexPath.row].name
+        cell.userSurname.text = viewModel.userFriends[indexPath.row].surname
+        cell.userEmail.text = viewModel.userFriends[indexPath.row].email
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Kullanıcıya tıklanınca yapılcak işlem
     }
 }

@@ -56,6 +56,5 @@ final class AddNewBookViewModel: AddNewBookViewModelProtocol {
         let firebaseBookModel = FirebaseBookModel(title: takenBook.title ?? "-", description: takenBook.description ?? "-", author: takenBook.authors!.first!, imageLink: takenBook.imageLinks!.first!.value, userComment: userComment!, userEmail: userEmail, categories: category ?? "-")
         
         firebaseManager.addNewBookToFirebase(collection: "Books", firebaseBookModel)
-        
     }
 }

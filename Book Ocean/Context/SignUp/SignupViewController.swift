@@ -20,6 +20,7 @@ final class SignupViewController: BaseViewController {
     // MARK: - Proporties.
     private var signUpViewModel: SignUpViewModel = SignUpViewModel()
 
+    // MARK: - Life cycle methods.
     override func viewDidLoad() {
         super.viewDidLoad()
 
