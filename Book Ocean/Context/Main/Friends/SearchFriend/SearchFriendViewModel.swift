@@ -23,10 +23,9 @@ final class SearchFriendViewModel: SearchFriendViewModelProtocol {
     var filteredUserDataModel: [UserModel] = [UserModel]()
     
     private var firebaseManager: FirebaseManager = FirebaseManager()
-    // [UserModel]
     
     func loadUser() {
-        firebaseManager.getAllUsers { users in
+        firebaseManager.getAllUsers { users, documentIDs in
             self.userDataModel = users
             self.filteredUserDataModel = users
             self.delegate?.loadUsersFromFirebase(users: self.userDataModel)

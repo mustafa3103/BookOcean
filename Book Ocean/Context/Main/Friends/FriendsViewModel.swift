@@ -13,6 +13,7 @@ protocol FriendsViewModelDelegate: AnyObject {
 
 protocol FriendsViewModelProtocol: AnyObject {
     func loadFriends()
+    func deleteSelectedFriend(at row: Int)
 }
 
 final class FriendsViewModel: FriendsViewModelProtocol {
@@ -26,5 +27,10 @@ final class FriendsViewModel: FriendsViewModelProtocol {
             self.userFriends = friends
             self.delegate?.loadedFriends()
         }
+    }
+
+    func deleteSelectedFriend(at row: Int) {
+        let selectedFriend = userFriends[row]
+        firebaseManager.deleteSelectedFriend(selectedFriend)
     }
 }

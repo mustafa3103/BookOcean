@@ -23,7 +23,7 @@ final class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
     func changePassword(oldPassword: String, newPassword: String) {
         let currentUserEmail = firebaseManager.getCurrentUserEmail()
         var currentUserModel: UserModel?
-        firebaseManager.getAllUsers { users in
+        firebaseManager.getAllUsers { users, documentIDs in
             for user in users {
                 if user.email == currentUserEmail {
                     currentUserModel = user

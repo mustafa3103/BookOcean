@@ -48,10 +48,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.authorImageView.sd_setImage(with: URL(string: book.imageLink))
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // exampleAlert.showAlert()
-    }
 }
 // MARK: - MainViewModelDelegate methods.
 extension MainViewController: MainViewModelDelegate {

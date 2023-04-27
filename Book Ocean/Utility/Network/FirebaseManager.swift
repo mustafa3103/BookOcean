@@ -36,42 +36,11 @@ final class FirebaseManager {
             }
         }
     }
-    
-    func getCurrentUserViaUserModel(completion: @escaping (UserModel) -> Void) {
+
+    func getCurrentUserViaUserModel(completion: @escaping (UserModel, String) -> Void) {
         let email = getCurrentUserEmail()
         
-        getAllUsers { users in
-            for user in users {
-                if user.email == email {
-                    
-                    completion(user)
-                    break
-                }
-            }
-        }
-    }
-    
-    func getAllUsers(completion: @escaping ([UserModel]) -> Void) {
-        var users: [UserModel] = []
-        let firebaseUsersRef = dbf.collection("Users")
-        
-        firebaseUsersRef.getDocuments { querySnaphot, error in
-            if let querySnaphot {
-                for document in querySnaphot.documents {
-                    let data = document.data()
-                    
-                    let user = UserModel(email: data["email"] as? String ?? "", name: data["name"] as? String ?? "", surname: data["surname"] as? String ?? "", password: data["password"] as? String ?? "")
-                    users.append(user)
-                }
-                completion(users)
-            }
-        }
-    }
-    
-    func getCurrentUserViaUserModelV2(completion: @escaping (UserModel, String) -> Void) {
-        let email = getCurrentUserEmail()
-        
-        getAllUsersV2 { users, documentIDs in
+        getAllUsers { users, documentIDs in
             for index in 0 ..< users.count {
                 let user = users[index]
                 let documentID = documentIDs[index]
@@ -83,25 +52,7 @@ final class FirebaseManager {
         }
     }
 
-    func getCurrentUserFriends(completion: @escaping ([UserModel]) -> Void) {
-        var userFriends: [UserModel] = []
-        
-        getCurrentUserViaUserModelV2 { currentUser, documentId in
-            let friendsEmail = currentUser.friends
-            
-            self.getAllUsersV2 { friends, documentIds in
-                for friend in friends {
-                    guard let currentUserFriends = currentUser.friends else { return }
-                    if currentUserFriends.contains(friend.email) {
-                        userFriends.append(friend)
-                    }
-                }
-                completion(userFriends)
-            }
-        }
-    }
-    
-    func getAllUsersV2(completion: @escaping ([UserModel], [String]) -> Void) {
+    func getAllUsers(completion: @escaping ([UserModel], [String]) -> Void) {
         var users: [UserModel] = []
         var documentIDs: [String] = []
         let firebaseUsersRef = dbf.collection("Users")
@@ -124,10 +75,42 @@ final class FirebaseManager {
             }
         }
     }
+
+    func getCurrentUserFriends(completion: @escaping ([UserModel]) -> Void) {
+        var userFriends: [UserModel] = []
+        
+        getCurrentUserViaUserModel { currentUser, documentId in
+            
+            self.getAllUsers { friends, documentIds in
+                for friend in friends {
+                    guard let currentUserFriends = currentUser.friends else { return }
+                    if currentUserFriends.contains(friend.email) {
+                        userFriends.append(friend)
+                    }
+                }
+                completion(userFriends)
+            }
+        }
+    }
+
+    func deleteSelectedFriend(_ selectedFriend: UserModel) {
+        getCurrentUserViaUserModel { currentUser, currentUserId in
+            let firebaseUserRef = self.dbf.collection("Users").document(currentUserId)
+            
+            // Remove the selected friend from the friends array
+            firebaseUserRef.updateData(["friends": FieldValue.arrayRemove([selectedFriend.email])]) { error in
+                if let error = error {
+                    print("Error removing friend: \(error.localizedDescription)")
+                } else {
+                    print("Friend removed successfully")
+                }
+            }
+        }
+    }
     
     func addFriend(friendUserModel: UserModel) {
 
-        getCurrentUserViaUserModelV2 { currentUser, currentUserId in
+        getCurrentUserViaUserModel { currentUser, currentUserId in
             let userReference = self.dbf.collection("Users").document(currentUserId)
             
             var currentUserFriends = currentUser.friends ?? []
@@ -209,25 +192,32 @@ final class FirebaseManager {
     func loadDataFromFirebase(collection: String, completion: @escaping ([FirebaseBookModel]) -> Void) {
         let firebaseBookRef = dbf.collection(collection)
         
-        firebaseBookRef.addSnapshotListener { querySnapshot, error in
-            if let querySnapshot {
-                var firebaseBooks: [FirebaseBookModel] = []
-                
-                for document in querySnapshot.documents {
-                    let data = document.data()
-                    let book = FirebaseBookModel(title: data["title"] as? String ?? "",
-                                                 description: data["description"] as? String ?? "",
-                                                 author: data["author"] as? String ?? "",
-                                                 imageLink: data["imageLink"] as? String ?? "",
-                                                 userComment: data["userComment"] as? String ?? "",
-                                                 userEmail: data["userEmail"] as? String ?? "",
-                                                 categories: data["categories"] as? String ?? "")
-                    firebaseBooks.append(book)
+        getCurrentUserFriends { friends in
+            firebaseBookRef.addSnapshotListener { querySnapshot, error in
+                if let querySnapshot {
+                    var firebaseBooks: [FirebaseBookModel] = []
+                    
+                    for document in querySnapshot.documents {
+                        let data = document.data()
+                        let book = FirebaseBookModel(title: data["title"] as? String ?? "",
+                                                     description: data["description"] as? String ?? "",
+                                                     author: data["author"] as? String ?? "",
+                                                     imageLink: data["imageLink"] as? String ?? "",
+                                                     userComment: data["userComment"] as? String ?? "",
+                                                     userEmail: data["userEmail"] as? String ?? "",
+                                                     categories: data["categories"] as? String ?? "")
+                        
+                        for friend in friends {
+                            if friend.email == book.userEmail {
+                                firebaseBooks.append(book)
+                            }
+                        }
+                    }
+                    completion(firebaseBooks)
+                } else {
+                    print("Error retrieving documents: \(error?.localizedDescription ?? "")")
+                    completion([])
                 }
-                completion(firebaseBooks)
-            } else {
-                print("Error retrieving documents: \(error?.localizedDescription ?? "")")
-                completion([])
             }
         }
     }

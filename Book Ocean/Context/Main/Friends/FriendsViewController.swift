@@ -50,7 +50,13 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Kullanıcıya tıklanınca yapılcak işlem
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Seçilen indexteki arkadaşı firebase üzerinden sil.
+            let selectedFriend = viewModel.userFriends[indexPath.row]
+            viewModel.deleteSelectedFriend(at: indexPath.row)
+            viewModel.userFriends.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
