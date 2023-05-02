@@ -22,6 +22,7 @@ final class LoginViewController: BaseViewController {
         viewModel.delegate = self
     }
 
+    //MARK: - Functions
     @IBAction private func loginButtonClicked(_ sender: UIButton) {
         
         guard let email = emailTextField.text else { return }
@@ -30,7 +31,7 @@ final class LoginViewController: BaseViewController {
         if email.count > 3 && password.count > 3 {
             viewModel.loginToApplication(email: email, password: password)
         } else {
-            // Kullanıcıya yeterli sayıda karakter girmediği için hata göster.
+            // Show error due to user did not enter enough characters.
         }
     }
     
@@ -38,7 +39,7 @@ final class LoginViewController: BaseViewController {
         navigatePageWithPresent(nameText: "Forget", identifier: "forgetScreen")
     }
 }
-
+//MARK: - LoginViewController's delegate.
 extension LoginViewController: LoginViewModelDelegate {
     func loginStateControl(result: Bool) {
         if result {

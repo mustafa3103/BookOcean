@@ -17,9 +17,11 @@ protocol LoginViewModelProtocol: AnyObject {
 
 final class LoginViewModel: LoginViewModelProtocol {
     
+    //MARK: - Properties.
     weak var delegate: LoginViewModelDelegate?
     private var firebaseManager: FirebaseManager = FirebaseManager()
 
+    //MARK: - Functions
     func loginToApplication(email: String, password: String) {
         firebaseManager.loginWithFirebase(email: email, password: password) { result in
             if result {

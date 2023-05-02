@@ -17,9 +17,11 @@ protocol SignUpViewModelProtocol: AnyObject {
 
 final class SignUpViewModel: SignUpViewModelProtocol {
     
+    //MARK: - Properties
     weak var delegate: SignUpViewModelDelegate?
     private var firebaseManager: FirebaseManager = FirebaseManager()
     
+    //MARK: - Functions
     func signUpNewUser(email: String, password: String, rePassword: String, name: String, surname: String) {
         if password == rePassword && password.count >= 6 {
             let newUser = UserModel(email: email, name: name, surname: surname, password: password)
