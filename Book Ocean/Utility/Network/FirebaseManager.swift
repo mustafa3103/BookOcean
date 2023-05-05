@@ -37,6 +37,14 @@ final class FirebaseManager {
         }
     }
 
+    func resetPassword(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error {
+                print("Error was occured. Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
     func getCurrentUserViaUserModel(completion: @escaping (UserModel, String) -> Void) {
         let email = getCurrentUserEmail()
         

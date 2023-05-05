@@ -13,11 +13,10 @@ protocol ForgetViewModelProtocol: AnyObject {
 }
 
 final class ForgetViewModel: ForgetViewModelProtocol {
+
+    private var firebaseManager: FirebaseManager = FirebaseManager()
+
     func resetPassword(email: String) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let error {
-                print("Error was occured. Error: \(error)")
-            }
-        }
+        firebaseManager.resetPassword(email: email)
     }
 }
