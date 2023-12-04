@@ -1,6 +1,6 @@
 # Book Ocean Application
 
-## Briefly, this is a application which user can share their thoughts about books, can see friends' thoughts about books etc. Also can get book recommendation etc and save these books to their reading list.
+### Briefly, this is a application which user can share their thoughts about books, can see friends' thoughts about books etc. Also can get book recommendation etc and save these books to their reading list.
 
 ## Features
 <ul>
